@@ -1,9 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-      <link rel="stylesheet" href="index.css">
+
+      <!-- Dark Theme, Futuristic Styling -->
+      <style>
+         /* Reset and Basic Styles */
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            color: #e0e0e0;
+         }
+         body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0;
+            font-smoothing: antialiased;
+         }
+         #header, #footer {
+            background-color: #1c1c1e;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+         }
+         #header img {
+            max-width: 120px;
+            filter: brightness(0) invert(1); /* Make logo white in dark mode */
+         }
+         #content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+         }
+         h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2em;
+            font-weight: 300;
+            color: #00e676; /* Futuristic green accent */
+            margin-bottom: 15px;
+         }
+         #uv-form {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+         }
+         .form__input {
+            width: 70%;
+            max-width: 600px;
+            padding: 15px;
+            font-size: 1em;
+            border: none;
+            border-radius: 25px;
+            background-color: #2a2a2e;
+            color: #e0e0e0;
+            outline: none;
+            box-shadow: 0px 4px 15px rgba(0, 255, 102, 0.3); /* Green glow */
+            transition: background-color 0.3s ease;
+         }
+         .form__input::placeholder {
+            color: #8e8e93;
+         }
+         .form__input:focus {
+            background-color: #333;
+         }
+         .desc {
+            margin-top: 20px;
+            color: #8e8e93;
+            font-size: 0.9em;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+         }
+         #footer p {
+            font-size: 0.85em;
+            color: #666;
+         }
+         /* Accent Glow Effect */
+         #footer, #header, h1, .form__input:focus {
+            text-shadow: 0px 0px 8px rgba(0, 255, 102, 0.5); /* Green glow effect */
+         }
+      </style>
+
+      <!-- Fonts and Icons -->
       <link rel="shortcut icon" type="image/jpg" href="~/favicon.ico"/>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -14,23 +101,22 @@
          <img src="logo.gif" alt="Logo">
       </div>
       <div id="content">
-         <h1>Search the Web blocked or what, I honestly do not care.</h1>
+         <h1>Search the Web</h1>
 
-         <form id="uv-form"">
+         <form id="uv-form">
             <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/> 
             <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input"/>
           </form>
-          <div class="desc left-margin">
-            <p id="uv-error"></p>
-            <pre id="uv-error-code"></pre>
-          </div>
       </div>
+      
+      <!-- JavaScript Files -->
       <script src="uv/uv.bundle.js" defer></script>
       <script src="uv/uv.config.js" defer></script>
       <script src="register-sw.js" defer></script>
       <script src="search.js" defer></script>
       <script src="index.js" defer></script>
       <script src="error.js" defer></script>
+      
       <div id="footer">
          <p>&copy; 2024-2025 UV*NB. All rights reserved.</p>
       </div>
